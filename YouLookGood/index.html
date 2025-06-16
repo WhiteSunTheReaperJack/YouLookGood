@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouLookGood</title>
+    <style>
+        .content{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">YouLookGood</h1>
+    <h2 style="text-align: center; margin-bottom: 100px;">Track down your fitness progress</h2>
+    <h3 class="content">Profile</h3>
+    <div style="text-align: center; margin-bottom: 100px;">
+        <input type="number" id="age" placeholder="age"> <!-- input들은 숫자값을 받는다-->
+        <input type="number" id="height" placeholder="height"> <!--id는 class같이 정해준 이름, js에서 id로 찾기 쉽게 정해준 것-->
+        <input type="number" id="weight" placeholder="weight">
+        <button onclick="personal()">Add</button> <!--button은 클릭 시 personal() 함수를 실행한다-->
+    </div>
+    <h3 class="content">Your meal today</h3>
+    <div class="content" style="margin-bottom: 100px;">
+        <input type="text" id="food-name" placeholder="name (ex:chicken breast)">
+        <input type="text" id="food-amount" placeholder="amount (g)">
+        <button onclick="addFood()">Add</button>
+    </div>
+    <h3 style="text-align: center;">Today`s comsumption</h3>
+    <p id="summary" style="text-align: center;">protein: 0g / calorie: 0kcal</p>
+    </script>
+    <script>
+        let userProfile = {}; //빈 객체 선언, 사용자 입력값을 속성으로 추가하는 구조.
+
+        function personal() {
+            userProfile.age = Number(document.getElementById("age").value); //"age = 문자열로 사용자 값 받음, Number은 문자열을 숫자로 변환"
+            userProfile.height = Number(document.getElementById("height").value); //빈 userProfile 객체에 age, height, weight 속성 추가 및 값 갱신 ex) userProfile.age, height, weight
+            userProfile.weight = Number(document.getElementById("weight").value);
+            console.log(userProfile); // 잘 들어갔는지 콘솔창에서 확인.
+        }
+     </script>
+     <script>
+        let foodConsumption = {};
+        
+        function addFood (){
+            foodConsumption.foodName =  (document.getElementById("food-name").value); //foodName은 문자열이기 때문에 number로 감쌀 필요 없음
+            foodConsumption.foodAmount= Number(document.getElementById("food-amount").value);
+            console.log(foodConsumption);
+        }
+     </script>
+
+</body>
+</html>
